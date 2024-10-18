@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment';
 export class EmployeeService {
   constructor(private http: HttpClient) { }
   employeeObj: any;
+
   getEmployeeList(): Observable<ApiResponseModel> {
     return this.http.get<ApiResponseModel>(environment.API_URL + 'employees');
   }
