@@ -1,0 +1,45 @@
+<div class="row">
+  <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
+    <div class="collapse navbar-collapse" style="margin-left: 5px;" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" style="cursor: pointer; font-size: large; color: white;"
+            (click)="getAllEmployees()">Employee List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="cursor: pointer;font-size: large; color: white;" (click)="addEmployee()">Add
+            Employee</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">S.No</th>
+          <th scope="col">Emp Id</th>
+          <th scope="col">Employee Name</th>
+          <th scope="col">Designation</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of this.EmployeeList; track $index) {
+        <tr class="text-center">
+          <td>{{$index+1}}</td>
+          <td>{{item.empId}}</td>
+          <td>{{item.empName}}</td>
+          <td>{{item.designation}}</td>
+          <td>{{item.empSalary}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="update(item.empId)">Update</button>
+            <button style="margin: 5px;" class="btn btn-warning" (click)="delete(item.empId)">Delete</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
